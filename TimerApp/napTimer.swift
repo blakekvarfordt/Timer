@@ -47,7 +47,7 @@ class NapTimer {
         let timeRemaining = Int(timeLeft ?? 3 * 60)
         let minutesRemaining = timeRemaining / 60
         let secondsRemaining = timeRemaining - (minutesRemaining * 60)
-        return String(format: "%02d : %02d", [minutesRemaining, secondsRemaining])
+        return String(format: "%02d : %02d", arguments: [minutesRemaining, secondsRemaining])
     }
     
     // MARK: - Private Methods
