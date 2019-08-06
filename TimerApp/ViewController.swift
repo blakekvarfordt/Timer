@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        napTimer.startTimer(20)
         napTimer.delegate = self
     }
 
@@ -44,11 +43,31 @@ class ViewController: UIViewController {
         timerButton.setTitleColor(buttonColor, for: .normal)
     }
     
+    func presentAlert() {
+        let alertController = UIAlertController(title: "Time's up", message: "Do you wnat to keep sleeping?", preferredStyle: .alert)
+        alertController.addTextField { (textField) in
+            textField.keyboardType = .numberPad
+            textField.placeholder = "How many more seconds of sleep?"
+        }
+        
+        let dismissAction = UIAlertAction(title: "I'm Awake", style: .destructive, handler: nil)
+        let snoozAction = UIAlertAction(title: "Snooze", style: .cancel) { (_) in
+        if let textField = alertController.textFields?.first,
+            let inputText = textField.text,
+            let textAsDouble = Double(inputText) {
+            self.napTimer.startTimer(textAsDouble)
+            }
+        }
+        alertController.addAction(snoozAction)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true)
+    }
     
     // MARK: - Actions
     @IBAction func timerButtonTapped(_ sender: UIButton) {
         if napTimer.isOn {
             napTimer.stopTimer()
+            napTimer.startTimer(5)
         } else {
             napTimer.startTimer(8)
         }
@@ -66,7 +85,7 @@ extension ViewController: NapTimerDelegate {
     }
     
     func timerCompleted() {
-        
+        presentAlert()
     }
     
     
