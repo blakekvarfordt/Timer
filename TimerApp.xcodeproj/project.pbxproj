@@ -12,6 +12,7 @@
 		638AD91922F9DA10005FA8B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638AD91722F9DA10005FA8B3 /* Main.storyboard */; };
 		638AD91B22F9DA12005FA8B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638AD91A22F9DA12005FA8B3 /* Assets.xcassets */; };
 		638AD91E22F9DA12005FA8B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638AD91C22F9DA12005FA8B3 /* LaunchScreen.storyboard */; };
+		638AD92722F9DE8D005FA8B3 /* napTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AD92622F9DE8D005FA8B3 /* napTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		638AD91A22F9DA12005FA8B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		638AD91D22F9DA12005FA8B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		638AD91F22F9DA12005FA8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638AD92622F9DE8D005FA8B3 /* napTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = napTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +59,20 @@
 				638AD91322F9DA10005FA8B3 /* AppDelegate.swift */,
 				638AD91522F9DA10005FA8B3 /* ViewController.swift */,
 				638AD91722F9DA10005FA8B3 /* Main.storyboard */,
+				638AD92622F9DE8D005FA8B3 /* napTimer.swift */,
+				638AD92522F9DBFF005FA8B3 /* Resources */,
+			);
+			path = TimerApp;
+			sourceTree = "<group>";
+		};
+		638AD92522F9DBFF005FA8B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				638AD91A22F9DA12005FA8B3 /* Assets.xcassets */,
 				638AD91C22F9DA12005FA8B3 /* LaunchScreen.storyboard */,
 				638AD91F22F9DA12005FA8B3 /* Info.plist */,
 			);
-			path = TimerApp;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638AD92722F9DE8D005FA8B3 /* napTimer.swift in Sources */,
 				638AD91622F9DA10005FA8B3 /* ViewController.swift in Sources */,
 				638AD91422F9DA10005FA8B3 /* AppDelegate.swift in Sources */,
 			);
@@ -284,7 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83YG3ZQCH4;
-				INFOPLIST_FILE = TimerApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TimerApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83YG3ZQCH4;
-				INFOPLIST_FILE = TimerApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TimerApp/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
