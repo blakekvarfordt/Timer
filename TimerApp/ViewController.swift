@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -56,11 +57,30 @@ class ViewController: UIViewController {
             let inputText = textField.text,
             let textAsDouble = Double(inputText) {
             self.napTimer.startTimer(textAsDouble)
+            self.scheduleLocalAlert(in: textAsDouble)
             }
         }
         alertController.addAction(snoozAction)
         alertController.addAction(dismissAction)
         present(alertController, animated: true)
+    }
+    
+    func scheduleLocalAlert(in timeInterval: TimeInterval) {
+        let content = UNMutableNotificationContent()
+        content.title = ""
+        content.body = ""
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "napTimer", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("notification failed")
+                print(error.localizedDescription)
+                print(error)
+            }
+        }
     }
     
     // MARK: - Actions
